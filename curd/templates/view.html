@@ -1,0 +1,101 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}  
+<div class="row">
+    <div>
+        <center>
+            <!-- <div><img src="{% static "images/logo.png" %}" alt=""></div> -->
+            <h3>Walchand College Of Engineering</h3></center>
+    </div>
+    <div>
+        <a href="add" class="btn btn-outline-primary float-end ">Add</a>
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% csrf_token %}
+        <hr>
+    from : <input type="date" name="date1">
+    to : <input type="date" name="date1">
+    <button  class="btn btn-outline-success  btn-sm" type="submit" >date filter</button>
+    lab : <input type="text" name="lab">
+    <button  class="btn btn-outline-success  btn-sm" type="submit" >Lab filter</button>
+    Amount: <input type="number">
+    <button  class="btn btn-outline-success  btn-sm" type="submit" >Amount filter</button>
+    field(eg working) : <input type="text">
+    <button  class="btn btn-outline-success  btn-sm" type="submit" >field filter</button><br>
+    name wise : <input type="text">
+    <button  class="btn btn-outline-success  btn-sm" type="submit" >sr.no filter</button>
+    <hr>
+    
+    
+       
+        <!-- <h6>Date from</h6>
+        <input type="date" name="date1">
+        <h6>to</h6>
+        <input type="date" name="date2">
+        <button  class="btn btn-outline-success btn-block" type="submit" >date filter</button> -->
+    
+    <div class="card-body">
+        <a href="{% url 'export_csv' %}" class="btn btn-outline-primary float-end ">+ Asset file download CSV</a>
+        <a href="{% url 'export_excel' %}" class="btn btn-outline-primary float-end ">+ Asset file download excel</a>
+    </div>
+    <br>
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-lg table-striped">
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Name of the Equipment Machinary</th>
+                     <th>Vr. No.</th> 
+                     <th>Date</th>
+                    <th>Make</th>
+                    <th>identification mark</th>
+                    <th>Name of the party from whome purchesed </th>
+                    <th>VALUE</th>
+                    <th>Wether our own funds/ capital Grants</th>
+                    <th>Dept stock register folio number</th>
+                    <th>Varified by</th>
+                    <th>Date of verification</th>
+                    <th>Remark</th>
+                    <th>Image</th>
+                    <th>Laboratory</th> 
+                    <th>Delete</th>
+                    <th>View</th>
+                </tr>
+                {% for i in assets  %}
+                    <tr>
+                        <td>{{i.sr_no}}</td>
+                        <td>{{i.name}}</td>
+                         <td>{{i.vr_no}}</td>
+                        <td>{{i.Date}}</td>
+                        <td>{{i.make}}</td>
+                        <td>{{i.identification_mark}}</td>
+                        <td>{{i.Name_of_the_party_from_whome_purchesed }}</td>
+                        <td>{{i.value}}</td>
+                        <td>{{i.funds}}</td>
+                        <td>{{i.Dept_stock_register_folio_number}}</td>
+                        <td>{{i.Varified_by}}</td>
+                        <td>{{i.Date_of_verification}}</td>
+                        <td>{{i.Remark}}</td>
+                        <td>{{i.Image}}</td>
+                        <td>{{i.Laboratory}}</td> 
+                        
+                        <!-- <td>
+                            <a href="edit/{{i.sr_no}}" class="btn btn-sm btn-outline-success" >Edit</a>
+                        </td> -->
+                        
+                        <td>
+                            <a href="delete/{{i.sr_no}}" class="btn btn-sm btn-outline-danger ">delete</a>
+                        </td>
+                        
+                        <td>
+                            <a href="assetview/{{i.sr_no}}" class="btn btn-sm btn-outline-primary">view</a>
+                        </td>
+                    </tr>
+                {% endfor  %}
+            </table>
+           </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

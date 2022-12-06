@@ -1,0 +1,50 @@
+  {% load static %}
+  <style>
+    .navbar{
+        color:blue;
+        background-color: rgb(223, 179, 75);
+      }
+    
+      .navbar-brand{
+        font-size: 25px;
+        font-family: sans-serif;
+        color:black;
+        font-weight: bolder;
+      }
+    
+      .nav-link{
+        color:black;
+        font-weight: bold;
+      }
+      .nav-link:hover{
+        background-color: black;
+        color:white;
+        border-radius: 20px;
+      }
+      .btn:hover{
+        background-color: black;
+        color:white;
+      }
+  </style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg  nev">
+        {% comment %} <img src="{% static "images/logo.webp" %}" alt=""> {% endcomment %}
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Walchand College Of Engineering</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link" href="/adminclick">admin</a>
+              <a class="nav-link" href="/studentclick">Student</a>
+              <a class="nav-link" href="/labadministrator">labadministrator</a>
+              <!-- <a class="nav-link disabled">Disabled</a> -->
+            </div>
+          </div>
+        </div>
+      </nav>

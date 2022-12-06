@@ -1,0 +1,127 @@
+{% extends 'home.html' %}
+{% block content %} 
+
+<!-- <style>
+    .accImg {
+        object-fit: cover;
+        width: 600px;
+        height: 400px;
+    }
+</style> -->
+<div class="signup-form">
+  {% comment %} <form action="{% url 'add' %}" method="POST" class="form-horizontal"> {% endcomment %}
+
+    <center><h2>-----VIEW ASSET----</h2></center>
+    <div class="container col-md-6 ">
+      <div class="card">
+        <div class="card-body">
+          <form action="/assetview/{{asset1.sr_no}}" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="">Sr No :</label>
+              <input name="srno" type="number" class="form-control" name="title" placeholder="Title" {% if asset1 %}
+              value="{{asset1.sr_no}}" {%endif%} >
+            </div>
+            <div class="mb-3">
+              <label for="">Name :</label>
+              <input name="name" type="text" class="form-control" {% if asset1 %} value="{{asset1.name}}"
+               {%endif%}>
+            </div>
+             <div class="mb-3">
+              <label for="">Vr No :</label>
+              <input name="vrno" type="text" class="form-control" {% if asset1 %} value="{{asset1.vr_no}}"
+              {%endif%}>
+            </div>
+            <div class="mb-3">
+               
+                
+              <label for="">Date :</label>
+              <input name="date"   class="form-control"  {% if asset1 %} value="{{asset1.Date}} " {%endif%}>
+              
+              
+            </div> 
+            <div class="mb-3">
+              <label for="">Make :</label>
+              <input name="make" type="text" class="form-control" {% if asset1 %} value="{{asset1.make}}"
+              {%endif%}>
+            </div>
+            <div class="mb-3">
+              <label for="">Identification Mark</label>
+              <input name="idmark" type="text" class="form-control" {% if asset1 %}  value="{{asset1.identification_mark}}"
+              {%endif%}>
+            </div>
+            <div class="mb-3">
+              <label for="">Name Of the party from whome purchesed :</label>
+              <input name="whompurches" type="text" class="form-control" {% if asset1 %} value="{{asset1.Name_of_the_party_from_whome_purchesed}}"
+              {%endif%}>
+            </div>
+            <div class="mb-3">
+              <label for="">Value :</label>
+              <input name="value" type="number" class="form-control" {% if asset1 %} value="{{asset1.value}}"  {%endif%}>
+            </div>
+            <div class="mb-3">
+              <label for="">Wether our own funds/ capital Grants :</label>
+              <input name="funds" type="text" class="form-control" {% if asset1 %} value="{{asset1.funds}}"
+              {%endif%}>
+            </div>
+            <div class="mb-3">
+              <label for="">Dept stock register folio number :</label>
+              <input name="folio" type="number" class="form-control" {% if asset1 %}  value="{{asset1.Dept_stock_register_folio_number}}"
+              {%endif%}>
+            </div>
+            <div class="mb-3">
+              <label for="">Varified by :</label>
+              <input name="varifiedby" type="text" class="form-control" {% if asset1 %}  value="{{asset1.Varified_by}}"
+              {%endif%}>
+            </div>
+            <div class="mb-3">
+              <label for="">Date of verification :</label>
+              <input name="dvarification"  class="form-control" {% if asset1 %} value="{{asset1.Date_of_verification}}"
+              {%endif%}>
+            </div>
+            <div class="mb-3">
+                
+              <label for="">Remark :</label>
+              <input name="remark" type="text" class="form-control" {% if asset1 %} value="{{asset1.Remark}}"
+              {%endif%}>
+              <!-- <select class="form-select" aria-label="Default select example"  name="remark">
+                <option selected>{{asset1.Remark}}</option>
+                <option value="Asolute">Asolute</option>
+                <option value="Working">Working</option>
+                <option value="Out of use">Out of use</option>
+              </select> -->
+              
+            </div>
+            <div class="mb-3">
+                {% if asset1.Image %} 
+              <label for="formFileMultiple" class="form-label">Image :</label>
+              <img  alt="" multiple src="{{ asset1.Image.url}}" value="{{asset1.Image}}" class="accImg" class="img_fluid" 
+              
+             >
+            {%endif%}
+            </div>
+            <!-- <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Image :</label>
+                <input name="image" class="form-control" type="file"  multiple {% if asset1 %} value="{{asset1.Image}}" {%endif%} style="height:400px width=400px">
+            </div> -->
+            <div class="mb-3">
+              <label for="">Labratory :</label>
+              <input name="lab" type="text" class="form-control" {% if asset1 %} value="{{asset1.Laboratory}}"
+              {%endif%}>
+            </div> 
+            <div class="form-group text-center mt-3">
+              <div class="col-xs-8 col-xs-offset-4">
+                <button type="submit" class="btn btn-outline-success btn-lg" style="border-radius: 20px;" >OK</button>
+              </div>
+            </div>
+            <a href="delete/{{asset1.sr_no}}" class="btn btn-sm btn-outline-danger ">delete</a>
+            <a href="edit/{{asset1.sr_no}}" class="btn btn-sm btn-outline-danger ">Edit</a>
+          </form>
+        </div>
+      </div>
+    </div>
+ 
+  {% comment %} </form> {% endcomment %}
+
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'home.html' %}
+{% block content %}  
+<div class="row">
+    <div>
+        <center><h3>Walchand College Of Engineering</h3></center>
+    </div>
+    
+    <!-- <div class="card-body ">
+        {%  url 'export_csv' as export_csv %}
+        <a href="{{ export_csv }}" class="nav-link {% if request.path == export_csv %} active {% endif %} {% if request.path == edit_staff %} active {% endif %}">
+            <i class="nav-icon fas fa-chalkboard-teacher"></i>
+            <p>
+              Reports
+            </p>
+        </a>
+    </div> -->
+    <div class="card-body">
+        <a href="{% url 'export_csv' %}" class="btn btn-outline-primary float-end ">+ Asset file download</a>
+    </div>
+    <div class="card-body">
+        <a href="{% url 'export_excel' %}" class="btn btn-outline-primary float-end ">+ Asset file download excel</a>
+    </div>
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-lg table-striped">
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Name of the Equipment Machinary</th>z
+                     <th>Vr. No.</th> 
+                     <th>Date</th>
+                    <th>Make</th>
+                    <th>identification mark</th>
+                    <th>Name of the party from whome purchesed </th>
+                    <th>VALUE</th>
+                    <th>Wether our own funds/ capital Grants</th>
+                    <th>Dept stock register folio number</th>
+                    <th>Varified by</th>
+                    <th>Date of verification</th>
+                    <th>Remark</th>
+                    <th>Image</th>
+                    <th>Laboratory</th>
+                    <th>Vast view</th>
+                </tr>
+                {% for i in assets  %}
+                    <tr>
+                        <td>{{i.sr_no}}</td>
+                        <td>{{i.name}}</td>
+                         <td>{{i.vr_no}}</td>
+                        <td>{{i.Date}}</td>
+                        <td>{{i.make}}</td>
+                        <td>{{i.identification_mark}}</td>
+                        <td>{{i.Name_of_the_party_from_whome_purchesed }}</td>
+                        <td>{{i.value}}</td>
+                        <td>{{i.funds}}</td>
+                        <td>{{i.Dept_stock_register_folio_number}}</td>
+                        <td>{{i.Varified_by}}</td>
+                        <td>{{i.Date_of_verification}}</td>
+                        <td>{{i.Remark}}</td>
+                        <td>{{i.Image}}</td>
+                        <td>{{i.Laboratory}}</td> 
+                        <td>
+                            <a href="assetview1/{{i.sr_no}}" class="btn btn-sm btn-outline-primary">view</a>
+                        </td>
+                    </tr>
+                {% endfor  %}
+            </table>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

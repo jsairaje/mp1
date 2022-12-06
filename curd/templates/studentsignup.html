@@ -1,0 +1,91 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %} 
+<br><br>
+<style>
+    .btn{
+      color :black;
+      background-color:rgb(226, 171, 43);
+      text-align: center;
+      border-radius :20px;
+      font-weight:bold;
+      padding-right:20px;
+      padding-left:20px;
+  
+    }
+    .mb-3{
+      text-align:left;
+      font-weight: bold;
+      font-size:20px;
+    }
+    .h4{
+      font-weight: bolder;
+      font-size:30px;
+    }
+    .card{
+        padding:10px;
+    }
+    .my-img{
+      width: 100%;
+      height: auto;
+    }
+  </style>
+<div class="container-fluid ">
+  <div class="row ">
+
+
+    <div class="col-lg-4 col-sm-12 card shadow m-5" >
+        <h4 class="h4">Student signup</h4>
+        
+        <!-- <form method="POST" name="signup" action="" >
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username">
+          </div>
+            <div class="mb-3">
+              <label for="email1" class="form-label">Email address</label>
+              <input type="email" class="form-control"  name="email">
+              
+            </div>
+            <div class="mb-3">
+                <label for="pwd" class="form-label">Password:</label>
+                <input type="password" class="form-control"  placeholder="Enter password" name="pswd">
+            </div>
+            <div class="mb-3 ">
+                <label for="pwd" class="form-label">Confirm Password:</label>
+              <input type="password" class="form-control"  placeholder="Enter password" name="pswd1">
+            </div>
+            <button type="submit" class="btn btn-primary">Sign up</button>
+            <div class="border-top pt-3">
+              <small class="text-muted">
+                  Already Have an Account? <a href="{% url 'studentlogin' %}">Sign In</a>
+              </small>
+          </div>
+          </form> -->
+          <hr>
+        <div class="col-md-7 offset-md-3 mb-4">
+            <form action="{% url 'studentsignup' %}" method="POST" >
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-secondary">Register</button>
+            </form>
+            <div class="text-center">Already have account? <a href="{% url 'studentlogin' %}">Login here</a></div>
+        </div> 
+    </div>
+    <div class="col-lg-5 col-sm-12 ">
+      <img class="my-img"
+    src="https://image.freepik.com/free-vector/register-access-login-password-internet-online-website-concept-flat-illustration_385073-108.jpg"
+    alt="">
+    </div>
+
+    <div>
+      <h3>
+        {% for message in messages %}
+        {{message}}
+        {% endfor  %}
+      </h3>
+    </div>
+  </div>
+</div>
+{% endblock %}

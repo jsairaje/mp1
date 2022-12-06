@@ -1,0 +1,23 @@
+{% include 'adminnevbar.html'%} 
+<br><br>
+<style>
+    .btn{
+        color:black;
+        background-color: rgb(226, 171, 43);
+    }
+    .h1{
+        margin-bottom: 10px;
+        font-weight: bolder;
+    }
+</style>
+<center>
+    <h1 class="h1">Hello ,Admin</h1>
+
+<div class="  card shadow col-lg-4">
+    <div class="mt-4">
+    <a href="viewbook" class="btn btn-primary btn-lg active" style="border-radius: 0%;" role="button" aria-pressed="true">View Asset</a><br><br>
+    <a href="viewasset" class="btn btn-primary btn-lg active" style="border-radius: 0%;" role="button" aria-pressed="true">Update Asset</a><br><br>
+    </div>
+</div>
+</center>
+{% include 'footer.html' %}

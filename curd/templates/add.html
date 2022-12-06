@@ -1,0 +1,24 @@
+{% extends 'home.html' %}
+{% block content %} 
+<div class="container mt-5" >
+    <div class="row my-3" >
+     <div class="col-sm-7 offset-sm-3"   >
+      <h3 class="text-center alert alert-info">Add Asset</h3>
+   
+      <hr>
+   
+       <form method="POST" action="" enctype="multipart/form-data" class="shadow p-5" style="border:2px solid grey" novalidate>
+           {% csrf_token %}
+               <h3></h3>
+               {{form.as_p}}
+               
+           <hr>
+           <input id="form-button" class="btn btn-outline-success btn-block" type="submit" value="Add Asset">
+           <br>
+           {{form.non_field_errors}}  
+   
+       </form>
+   
+       </div>
+       </div>
+{% endblock %}

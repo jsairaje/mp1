@@ -1,0 +1,75 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %} 
+<br><br>
+<style>
+  .btn{
+    color :black;
+    background-color:rgb(226, 171, 43);
+    text-align: center;
+    border-radius :20px;
+    font-weight:bold;
+    padding-right:20px;
+    padding-left:20px;
+
+  }
+  .mb-3{
+    text-align:left;
+    font-weight: bold;
+    font-size:20px;
+  }
+  .h4{
+    font-weight: bolder;
+    font-size:30px;
+  }
+  
+</style>
+<body style="background-image: url('login-bg.jpeg'); background-size: cover;">
+  
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-lg-4 col-sm-12 card shadow m-5">
+          <div class="card-body">
+              <h4 class="h4">Student Login</h4>
+              <!-- onsubmit="return checkpassword()" -->
+              <form method="POST"  action="" class="shadow p-5" style="border:2px solid grey">
+                {% csrf_token %}
+                <!-- {{fm.as_p}} -->
+                  <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">Username:</label>
+                    <input type="text" class="form-control"  placeholder="Enter email" name="username">
+                  </div>
+                  <div class="mb-3">
+                    <label for="pwd" class="form-label">Password:</label>
+                    <input type="password" class="form-control"  placeholder="Enter password" name="pswd">
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary">login </button>
+                 
+                <!-- <button type="submit" class="btn btn-primary">login </button>
+                <div class="border-top pt-3">
+                  <small class="text-muted">
+                      NEW HEAR? <a href="{% url 'studentsignup' %}">Sign up</a>
+                  </small>
+              </div> -->
+                </form>
+                <div class="border-top pt-3">
+                  <small class="text-muted">
+                      NEW HEAR? <a href="{% url 'studentsignup' %}">Sign up</a>
+                  </small>
+              </div>
+          </div>
+
+        </div>
+        <div class="col-lg-5 col-sm-12 ">
+          <img class="my-img" src="https://image.freepik.com/free-vector/online-registration-sign-up-with-man-sitting-near-smartphone_268404-95.jpg" alt="">
+        </div>
+    </div>  
+  </div>
+
+</div>
+
+  
+</body>
+{% endblock %}

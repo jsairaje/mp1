@@ -1,0 +1,51 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %} 
+<br><br>
+<style>
+    .btn{
+      color :black;
+      background-color:rgb(226, 171, 43);
+      text-align: center;
+      border-radius :20px;
+      font-weight:bold;
+      padding-right:20px;
+      padding-left:20px;
+  
+    }
+    .mb-3{
+      text-align:left;
+      font-weight: bold;
+      font-size:20px;
+    }
+    .h4{
+      font-weight: bolder;
+      font-size:30px;
+    }
+    .card{
+        padding:10px;
+    }
+  </style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-sm-12 card shadow m-4">
+            <div class="card-body">
+                <h4 class="h4 ">---EDIT PASSWORD---</h4>
+        <form action="" method="POST" class="shadow p-5" style="border:2px solid grey" novalidate>
+            {% csrf_token %}
+            {% for form in fm  %}  
+                {{form.label_tag}}{{form}}{{form.errors|striptags}} <br> <br>
+                {% endfor  %}
+                <hr>
+                <input id="form-button" class="btn btn-outline-success btn-block" type="submit" value="submit">
+        </form>
+        <div class="text-center">Change your mind? <a href="{% url 'view1' %}">Return to view page</a></div>
+        </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 ">
+            <!-- <img class="my-img" src="https://image.freepik.com/free-vector/online-registration-sign-up-with-man-sitting-near-smartphone_268404-95.jpg" alt=""> -->
+            <img src="{% static "images/tin.jpeg" %}" alt="" height="500px" >
+          </div>
+    </div>
+</div>
+{% endblock %}

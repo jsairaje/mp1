@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+{% block content %} 
+<div class="signup-form">
+  
+
+    <center><h2 >-----EDIT ASSET----</h2></center>
+    
+    <div class="container col-md-6 ">
+      <div class="card">
+        <div class="card-body">
+          
+          <form action="" method="post"  enctype="multipart/form-data" class="shadow p-5" style="border:2px solid grey">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" class="btn btn-outline-success btn-sm">
+        </form>
+          
+
+        </div>
+      </div>
+    </div>
+
+
+
+  
+  
+
+
+{% endblock %}

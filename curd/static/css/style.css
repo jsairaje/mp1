@@ -1,0 +1,7 @@
+.navbar{
+    color:blueviolet !important;
+}
+.nav-link:hover{
+    color:white;
+    background-color: red;
+}
